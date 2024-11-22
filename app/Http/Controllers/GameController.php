@@ -13,7 +13,7 @@ class GameController extends Controller
     public function index()
     {
         $games = Game::all(); //Fetch all games
-        return view('games.index', compact('games')); //return view with books
+        return view('games.index', compact('games')); //return view with games
     }
 
     /**
@@ -21,6 +21,9 @@ class GameController extends Controller
      */
     public function create()
     {
+        if (auth()->user()->role !== 'admin') {
+            return redirect()->route('games.index')->with('error', 'Access denied.'); //denies users without the correct perms, redirects to index with error message
+        }
         return view('games.create');
     }
 
@@ -29,15 +32,11 @@ class GameController extends Controller
      */
     public function store(Request $request)
     {
-
-        // use illuminate\Support\Facades\Storage;
-
         // validate the input
         $request->validate([
             'game_name'=> 'required',
             'description'=> 'required|max:500',
             'release_date'=>'required|integer',
-            // 'image_url' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048',
             'image_url' => 'required',
             'genre'=> 'required',
             'platform'=> 'required'
@@ -67,7 +66,8 @@ class GameController extends Controller
      */
     public function show(Game $game)
     {
-        return view('games.show')->with('game', $game);
+        $game->load('reviews.user');
+        return view('games.show', compact('game'));
     }
 
     /**

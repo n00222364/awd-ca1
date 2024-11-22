@@ -17,4 +17,9 @@ class Game extends Model
         'platform',
         'genre',        
     ];
+
+    public function reviews()
+    {
+        return $this->hasMany(Review::class);
+    }
 }

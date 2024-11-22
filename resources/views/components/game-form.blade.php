@@ -11,11 +11,7 @@
         {{ implode('', $errors->all('<div>:message</div>')) }}
     @endif -->
 
-    <?php
-        echo $action ?? '';
-        echo $method ?? '';
-        echo $game ?? '';
-    ?>
+
 
     <div class="mb-4">
         <label for="game_name" class="block text-sm text-gray-700">Game name</label>
