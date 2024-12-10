@@ -4,8 +4,8 @@ use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\GameController;
 use App\Http\Controllers\ReviewController;
-
-
+use App\Http\Controllers\DeveloperController;
+use App\Models\Developer;
 
 Route::get('/', function () {
     return view('welcome');
@@ -41,5 +41,22 @@ Route::resource('reviews', ReviewController::class);
 Route::post('games/{game}/reviews', [ReviewController::class, 'store'])->name('reviews.store');
 
 
+
+// Developers Section
+Route::resource('developers', DeveloperController::class)->middleware('auth');
+
+Route::get('/developers', [DeveloperController::class, 'index'])->name('developers.index');
+// this one retrieves the create form
+Route::get('/developers/create', [DeveloperController::class, 'create'])->name('developers.create');
+// POST request sends data. We don't directly go to this ourselves, the form makes its POST request to it, sending form data
+Route::post('/developers', [DeveloperController::class, 'store'])->name('developers.store');
+// Sends us to the edit function in DeveloperController, which returns the edit form (edit.blade.php)
+Route::get('/developers/{developer}/edit', [DeveloperController::class, 'edit'])->name('developers.edit');
+// The form itself will make a call to this, passing whatever we input
+Route::patch('/developers/{developer}', [DeveloperController::class, 'update'])->name('developers.update');
+Route::get('/developers/{developer}', [DeveloperController::class, 'show'])->name('developers.show');
+Route::delete('/developers/{developer}', [DeveloperController::class, 'destroy'])->name('developers.destroy');
+
 require __DIR__.'/auth.php';
+
 
