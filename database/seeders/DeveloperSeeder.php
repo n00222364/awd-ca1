@@ -6,6 +6,7 @@ use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use App\Models\Developer;
 
+
 class DeveloperSeeder extends Seeder
 {
     /**
@@ -13,6 +14,9 @@ class DeveloperSeeder extends Seeder
      */
     public function run(): void
     {
+        
+
+
         Developer::insert([
             ['name' => 'Mojang', 'website' => 'https://www.minecraft.net/en-us', 'about' => 'Mojang Studios is a Swedish video game developer based in Stockholm. The studio is best known for developing the sandbox and survival game Minecraft.', 'image_url' => 'https://i0.wp.com/xboxera.com/wp-content/uploads/2020/05/Mojang-Studios-Logo.jpg?fit=1000%2C600&ssl=1'],
             ['name' => 'Unknown Worlds', 'website' => 'https://unknownworlds.com/en', 'about' => 'Unknown Worlds (UW) is a globally distributed developer of beloved games across a wide variety of genres and platforms.', 'image_url' => 'https://d17c72h1ypygg7.cloudfront.net/UWE_Logo_stacked_1440p_f776fe1b75.jpg' ],
@@ -26,5 +30,6 @@ class DeveloperSeeder extends Seeder
             ['name' => 'Game Freak', 'website' => 'https://www.gamefreak.co.jp/town/30th/en/', 'about' => 'Game Freak Inc. is a Japanese video game developer, best known as the primary developer of the Pokémon series.', 'image_url' => 'https://logonoid.com/images/game-freak-logo.png'],
             ['name' => 'Mobius Digital', 'website' => 'https://www.mobiusdigitalgames.com/', 'about' => 'Mobius is a small, award-winning studio that makes games.', 'image_url' => 'https://lh3.googleusercontent.com/proxy/gQjRI9hgcb5unGV-y6B4tI-8L_arAglIhlgC3nwIVtbJtP_O4DSTiappbdkMPzVcZvWBDpGKAAnc1aBY_LpiFthp4lLdoNYlvHVULjM3BMUyDdRGH98uBst3']
         ]);
+   
     }
 }

@@ -28,6 +28,20 @@
                                     />                            
                                 </a>
 
+                                <div class='d-flex w-full'>
+
+                                <!-- second is for editing that same game -->
+                                <a href="{{ route('developers.edit', $developer) }}">
+                                    <button class='p-2 text-white rounded-sm bg-blue-500'>Edit</button>
+                                </a>
+
+                                <form onsubmit="return confirm('Are you sure?')" method="POST" action="{{ route('developers.destroy', $developer) }}">
+                                    @csrf
+                                    @method('DELETE')
+                                    <button type='submit' class='p-2 text-white rounded-sm bg-red-500'>Delete</button>                            
+                                </form>
+
+                                </div>
                         </div>
                         @endforeach
                     </div>
