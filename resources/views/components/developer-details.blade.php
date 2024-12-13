@@ -10,7 +10,7 @@
         </div>
             
 
-        </div>
+
 
         
         <p class="text-gray-700 leading-relaxed"> About: {{$about}}</p>

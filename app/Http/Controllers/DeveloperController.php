@@ -13,10 +13,9 @@ class DeveloperController extends Controller
      */
     public function index()
     {
-        //$developers = Developer::with('developers'); //Fetch all developers
+      //Fetch all developers
         $developers = Developer::with('games')->get(); 
-        //$developers = Developer::all();
-        //dd($developers);
+       
 
         return view('developers.index', compact('developers')); //return view with devs
     }
@@ -43,7 +42,7 @@ class DeveloperController extends Controller
             return redirect()->route('developers.index')->with('error', 'Access denied.'); //denies users without the correct perms, redirects to index with error message
         }
 
-
+        // only allows these values
         $validated= $request->validate([
             'name' => 'required|string|max:255',
             'about' => 'required|string|max:255',
@@ -51,7 +50,7 @@ class DeveloperController extends Controller
             'image_url' => 'required|string|max:255',
             'games'=> 'array',
         ]);
-
+        // creates dev if all values validated
         $developer = Developer::create($validated);
 
         if($request->has('games')) {

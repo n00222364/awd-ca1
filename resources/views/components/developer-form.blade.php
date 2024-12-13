@@ -7,12 +7,8 @@
         @method($method)
     @endif
 
-    <!-- @if($errors->any())
-        {{ implode('', $errors->all('<div>:message</div>')) }}
-    @endif -->
 
-
-
+<!-- Name -->
     <div class="mb-4">
         <label for="name" class="block text-sm text-gray-700">Developer name</label>
         <input 
@@ -28,6 +24,7 @@
         @enderror
     </div>
 
+    <!-- about -->
     <div class="mb-4">
         <label for="description" class="block text-sm text-gray-700">about</label>
         <input 
@@ -44,7 +41,7 @@
     </div>
 
 
-
+<!-- website -->
     <div class="mb-4">
         <label for="website" class="block text-sm text-gray-700">website</label>
         <input 
@@ -60,7 +57,7 @@
         @enderror
     </div>
 
-
+<!-- image -->
     <div class="mb-4">
         <label for="image_url" class="block text-sm text-gray-700">Image URL</label>
         <input 

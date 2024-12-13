@@ -9,7 +9,7 @@ use App\Models\Game;
 class Developer extends Model
 {
     use HasFactory;
-
+    // what attributes devs get
     protected $fillable = ['name', 'website', 'about', 'image_url'];
 
 
